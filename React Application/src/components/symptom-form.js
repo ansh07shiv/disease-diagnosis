@@ -22,6 +22,7 @@ const SymptomForm = (props) => {
             toBePassedML.push(value);
         }
         console.log("Values to be Passed to ML: ", toBePassedML);
+        let responseData = null;
         axios.post(
             'http://10.203.9.223/predict',
             {
@@ -30,10 +31,15 @@ const SymptomForm = (props) => {
             }
         ).then((response) => {
             console.log("API Response: ", response);
+            responseData = response.data;
+            let responseDataArr = responseData.split('&');
+            props.isSearchClicked(responseDataArr[0], Number(responseDataArr[1]).toFixed(2).toString());
         }).catch((error) => {
             console.log("API Error: ", error);
+            responseData = "Error&0";
+            let responseDataArr = responseData.split('&');
+            props.isSearchClicked(responseDataArr[0], Number(responseDataArr[1]).toFixed(2).toString());
         })
-        props.isSearchClicked();
     }
 
     return(

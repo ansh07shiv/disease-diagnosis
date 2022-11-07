@@ -14,11 +14,17 @@ import '@fontsource/roboto/700.css';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [searchResultsValues, setSearchResultsValues] = useState(null);
   const loginSuccess = () => {
     setIsLoggedIn(true);
   }
 
-  const searchResults = () => {
+  const searchResults = (disease, accuracy) => {
+    const diseaseMap = {
+      disease,
+      accuracy
+    }
+    setSearchResultsValues(diseaseMap);
     setIsSearchClicked(true);
   }
 
@@ -27,7 +33,7 @@ function App() {
         {isLoggedIn ? <NavBar />: null}
         {!isLoggedIn ? (<Login isLoginSuccess={loginSuccess}/>): null}
         {(isLoggedIn && !isSearchClicked) ? (<SymptomForm isSearchClicked={searchResults} />): null}
-        {isLoggedIn && isSearchClicked ? (<Results />): null}
+        {isLoggedIn && isSearchClicked ? (<Results searchResults={searchResultsValues}/>): null}
     </div>
   );
 }

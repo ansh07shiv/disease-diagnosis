@@ -26,5 +26,18 @@ export const symptoms = [
         label: "Chills",
         severity: "Dangerous",
         description: "Chills refers to feeling cold after being in a cold environment. The word can also refer to an episode of shivering along with paleness and feeling cold."
+    },
+    {
+        id: 4,
+        key: "continuous_sneezing",
+        label: "Continous Sneezing",
+        description: "Nonallergic rhinitis involves chronic sneezing or a congested, drippy nose with no apparent cause. Nonallergic rhinitis symptoms are similar to those of hay fever (allergic rhinitis), but with none of the usual evidence of an allergic reaction. Nonallergic rhinitis can affect children and adults."
+    },
+    {
+        id: 5,
+        key: "acidity",
+        label: "Acidity",
+        description: "\n" +
+            "Describes the amount of acid in a substance. An acid is a chemical that gives off hydrogen ions in water and forms salts by combining with certain metals. Acidity is measured on a scale called the pH scale."
     }
 ];
